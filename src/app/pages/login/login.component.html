@@ -1,0 +1,56 @@
+<section class="box">
+  <div
+    [ngClass]="{
+      box__logo: true,
+      box__logo__right: form
+    }"
+    [ngStyle]="{ transition: 'all 1s ease-in-out' }"
+  >
+    <div>
+      <h1>FAST</h1>
+      <h1>BUSINES</h1>
+    </div>
+  </div>
+  <form class="box__form">
+    <label class="box__form__label" for="">primeiro nome</label>
+    <input
+      class="box__form__input"
+      type="text"
+      placeholder="Digite seu primeiro nome..."
+    />
+    <label class="box__form__label" for="">email</label>
+    <input
+      class="box__form__input"
+      type="text"
+      placeholder="Digite seu email..."
+    />
+    <label class="box__form__label" for="">senha</label>
+    <input
+      class="box__form__input"
+      type="password"
+      placeholder="Digite sua senha..."
+    />
+    <button class="box__form__button" type="submit">cadastrar</button>
+    <p class="box__form__info">
+      Já possui conta? <a (click)="toggleForm()">login</a>
+    </p>
+  </form>
+  <form class="box__form">
+    <label class="box__form__label" for="">email</label>
+    <input
+      class="box__form__input"
+      type="text"
+      placeholder="Digite seu email..."
+    />
+    <label class="box__form__label" for="">senha</label>
+    <input
+      class="box__form__input"
+      type="password"
+      placeholder="Digite sua senha..."
+    />
+    <button class="box__form__button" type="submit">login</button>
+    <p class="box__form__info">
+      Não possui conta? <a (click)="toggleForm()">cadastre-se</a>
+    </p>
+  </form>
+</section>

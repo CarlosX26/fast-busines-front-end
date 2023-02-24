@@ -1,0 +1,125 @@
+:host {
+  background-color: var(--color-gray-4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.box {
+  display: flex;
+  width: 60%;
+  min-height: 60vh;
+  background-color: var(--color-gray-1);
+  border-radius: var(--radius-1);
+  position: relative;
+}
+
+.box__logo {
+  width: 50%;
+  background-color: var(--color-primary);
+  border-radius: 8px 48px 48px 8px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  inset: 0;
+}
+
+.box__form {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  padding: 0 16px;
+}
+
+.box__logo > div > h1 {
+  font-family: "Italiana", serif;
+  font-size: 64px;
+  font-weight: 100;
+  color: var(--color-gray-1);
+}
+
+.box__form__label {
+  font-size: var(--text-size-1);
+  color: var(--color-text);
+}
+.box__form__input {
+  height: 48px;
+  padding: 0 16px;
+  font-size: 16px;
+  border-radius: var(--radius-1);
+  outline: 2px solid transparent;
+  background-color: var(--color-gray-2);
+  transition: all 0.3s ease-in-out;
+}
+.box__form__input:focus {
+  outline-color: var(--color-gray-5);
+}
+
+.box__form__button {
+  background-color: var(--color-secondary);
+  height: 48px;
+  border-radius: var(--radius-1);
+  font-size: var(--text-size-1);
+  font-weight: 700;
+  color: var(--color-gray-1);
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+}
+.box__form__button:hover {
+  filter: brightness(0.9);
+}
+
+.box__form__info {
+  font-size: var(--text-size-1);
+  color: var(--color-text);
+}
+.box__form__info > a {
+  text-decoration: underline;
+  color: var(--color-secondary);
+  cursor: pointer;
+}
+
+.box__logo__right {
+  left: 50%;
+  border-radius: 48px 8px 8px 48px;
+}
+
+@media (width <= 890px) {
+  .box {
+    width: 90%;
+  }
+}
+@media (width <= 596px) {
+  .box {
+    min-height: 90vh;
+    width: 90%;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+    padding: 16px 0;
+  }
+  .box__form {
+    width: 100%;
+  }
+  .box__logo {
+    width: 100%;
+    height: 57%;
+    border-radius: 8px 8px 48px 48px;
+  }
+  .box__logo__right {
+    height: 43%;
+    left: 0;
+    top: 57%;
+    border-radius: 48px 48px 8px 8px;
+  }
+}
+@media (width <= 360px) {
+  .box {
+    width: 100%;
+  }
+}

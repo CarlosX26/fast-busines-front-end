@@ -66,3 +66,24 @@ li > div > button {
 li > div > button:hover {
   background-color: var(--color-primary);
 }
+
+@media (width <= 1145px) {
+  :host {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (width <= 875px) {
+  :host {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (width <= 655px) {
+  :host {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (width <= 432px) {
+  :host {
+    grid-template-columns: 1fr;
+  }
+}

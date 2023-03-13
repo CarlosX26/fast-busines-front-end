@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Login, Register } from "../models/auth";
+import { Api } from "./api";
 
 interface ILoginResponse {
   refresh: string;
@@ -18,31 +19,24 @@ interface IRegisterResponse {
   providedIn: "root",
 })
 export class AuthService {
-  baseUrl: string = "http://localhost:8000/api";
-  headers: {
-    "Content-Type": string;
-  } = {
-    "Content-Type": "application/json",
-  };
-
   constructor(private http: HttpClient) {}
 
   login(data: Login): Observable<ILoginResponse> {
     return this.http.post<ILoginResponse>(
-      `${this.baseUrl}/users/login/`,
+      `${Api.baseUrl}/users/login/`,
       JSON.stringify(data),
       {
-        headers: this.headers,
+        headers: { ...Api.headers },
       }
     );
   }
 
   register(data: Register): Observable<IRegisterResponse> {
     return this.http.post<IRegisterResponse>(
-      `${this.baseUrl}/users/`,
+      `${Api.baseUrl}/users/`,
       JSON.stringify(data),
       {
-        headers: this.headers,
+        headers: { ...Api.headers },
       }
     );
   }

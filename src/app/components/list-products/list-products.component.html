@@ -1,0 +1,8 @@
+<li *ngFor="let product of productList" [id]="product.id">
+  <img [src]="product.img_url" alt="image of product" />
+  <p>{{ product.name }}</p>
+  <div>
+    <p>{{ product.price | currency }}</p>
+    <button>Comprar</button>
+  </div>
+</li>

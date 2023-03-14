@@ -7,9 +7,9 @@
         <p>{{ product.name }}</p>
         <p>{{ product.price | currency }}</p>
         <span>
-          <button>+</button>
+          <button (click)="increaseProduct(product.id)">+</button>
           <p>{{ product.count }}</p>
-          <button>-</button>
+          <button (click)="decrementProduct(product.id)">-</button>
         </span>
         <button>
           <span class="material-symbols-outlined"> delete </span>

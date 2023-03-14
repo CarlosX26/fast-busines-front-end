@@ -32,6 +32,16 @@ export class CartService {
     localStorage.setItem("@fastbusines:cart", JSON.stringify(this.cart));
   }
 
+  updateProduct(productId: number, count: number): void | null {
+    const productInCartIndex = this.cart.findIndex((p) => p.id === productId);
+    this.cart[productInCartIndex].count += count;
+    if (this.cart[productInCartIndex].count < 1) {
+      this.cart[productInCartIndex].count = 1;
+    }
+    this.countProductsInCart.next(this.countProducts());
+    localStorage.setItem("@fastbusines:cart", JSON.stringify(this.cart));
+  }
+
   countProducts(): number {
     return this.cart.reduce((acc, acv) => acc + acv.count, 0);
   }

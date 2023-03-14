@@ -14,4 +14,12 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.productsList = this.cartService.cart;
   }
+
+  increaseProduct(productId: number): void {
+    this.cartService.updateProduct(productId, 1);
+  }
+
+  decrementProduct(productId: number): void {
+    this.cartService.updateProduct(productId, -1);
+  }
 }

@@ -3,6 +3,6 @@
   <p>{{ product.name }}</p>
   <div>
     <p>{{ product.price | currency }}</p>
-    <button>Comprar</button>
+    <button (click)="addProductToCart(product)">Comprar</button>
   </div>
 </li>

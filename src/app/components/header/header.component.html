@@ -1,14 +1,17 @@
 <header>
   <div class="container">
-    <h1 class="logo">Fast Busines</h1>
+    <a routerLink="">
+      <h1 class="logo">Fast Busines</h1>
+    </a>
 
     <nav class="nav">
-      <button class="nav__cart">
+      <a routerLink="cart" class="nav__cart">
         <span class="material-symbols-outlined"> shopping_cart </span>
-      </button>
-      <button class="nav__profile">
+        <span>{{ countProductsInCart }}</span>
+      </a>
+      <a routerLink="profile" class="nav__profile">
         <span class="material-symbols-outlined"> account_circle </span>
-      </button>
+      </a>
     </nav>
   </div>
 </header>

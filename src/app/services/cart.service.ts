@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { BehaviorSubject, Observable } from "rxjs";
 import { IProduct } from "./product.service";
 
 interface IProductCart extends IProduct {
@@ -8,19 +9,13 @@ interface IProductCart extends IProduct {
   providedIn: "root",
 })
 export class CartService {
-  cart: IProductCart[] = [
-    {
-      description: null,
-      id: 1,
-      img_url:
-        "https://i.pinimg.com/236x/61/4e/3c/614e3c99694894e5881dda883e894671.jpg",
-      name: "Macbook Air",
-      price: "12000.99",
-      stock: 1,
-      user_id: 2,
-      count: 1,
-    },
-  ];
+  cart: IProductCart[] =
+    JSON.parse(localStorage.getItem("@fastbusines:cart")!) || [];
+  countProductsInCart: BehaviorSubject<number> = new BehaviorSubject(
+    this.countProducts()
+  );
+  countProductsInCart$: Observable<number> =
+    this.countProductsInCart.asObservable();
 
   constructor() {}
 
@@ -33,6 +28,11 @@ export class CartService {
       this.cart.push({ ...product, count: 1 });
     }
 
+    this.countProductsInCart.next(this.countProducts());
     localStorage.setItem("@fastbusines:cart", JSON.stringify(this.cart));
+  }
+
+  countProducts(): number {
+    return this.cart.reduce((acc, acv) => acc + acv.count, 0);
   }
 }

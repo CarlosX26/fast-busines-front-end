@@ -7,18 +7,18 @@
         <p>{{ product.name }}</p>
         <p>{{ product.price | currency }}</p>
         <span>
-          <button (click)="increaseProduct(product.id)">+</button>
+          <button (click)="increaseProduct(product)">+</button>
           <p>{{ product.count }}</p>
-          <button (click)="decrementProduct(product.id)">-</button>
+          <button (click)="decrementProduct(product)">-</button>
         </span>
-        <button>
+        <button (click)="deleteProduct(product)">
           <span class="material-symbols-outlined"> delete </span>
         </button>
       </li>
     </ul>
     <div class="card__total">
       <p>Total</p>
-      <p>R$ 320</p>
+      <p>{{ sumTotal | currency }}</p>
       <button>Finalizar compra</button>
     </div>
   </div>

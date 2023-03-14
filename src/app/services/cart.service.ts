@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
 import { IProduct } from "./product.service";
 
-interface IProductCart extends IProduct {
+export interface IProductCart extends IProduct {
   count: number;
 }
 @Injectable({
@@ -34,5 +34,9 @@ export class CartService {
 
   countProducts(): number {
     return this.cart.reduce((acc, acv) => acc + acv.count, 0);
+  }
+
+  getProducts(): IProductCart[] {
+    return this.cart;
   }
 }

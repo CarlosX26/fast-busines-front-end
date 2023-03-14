@@ -2,13 +2,13 @@
   <div class="container">
     <h2>Carrinho</h2>
     <ul>
-      <li class="card__cart">
-        <img src="../../../assets/macbook.jpg" alt="product image" />
-        <p>Macbook Air</p>
-        <p>R$ 320</p>
+      <li class="card__cart" *ngFor="let product of productsList">
+        <img [src]="product.img_url" alt="product image" />
+        <p>{{ product.name }}</p>
+        <p>{{ product.price | currency }}</p>
         <span>
           <button>+</button>
-          <p>1</p>
+          <p>{{ product.count }}</p>
           <button>-</button>
         </span>
         <button>

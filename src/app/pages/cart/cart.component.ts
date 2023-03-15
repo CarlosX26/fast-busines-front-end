@@ -30,4 +30,34 @@ export class CartComponent implements OnInit {
   deleteProduct(product: IProductCart): void {
     this.cartService.removeProduct(product);
   }
+
+  sendProductList(): void | undefined {
+    const cart: IProductCart[] = JSON.parse(
+      localStorage.getItem("@fastbusines:cart")!
+    );
+
+    if (!cart) {
+      return;
+    }
+
+    const productList = cart
+      .map((el) => `${el.name} - ${el.count}`)
+      .join("%0A");
+
+    const urlBase =
+      "https://api.whatsapp.com/send?phone=+55++98981464032&text=";
+
+    const message =
+      "*FAST BUSINES PEDIDO*%0D%0A" +
+      "----------------Produtos----------------%0D%0A" +
+      `${productList}%0A%0A` +
+      "--------------------------------------------%0D%0A" +
+      `Total: ${this.cartService
+        .getSumTotalProducts()
+        .toLocaleString("BR", { style: "currency", currency: "BRL" })}`;
+
+    window.open(`${urlBase}${message}`, "_blank");
+    this.productsList = [];
+    this.cartService.clearCart();
+  }
 }

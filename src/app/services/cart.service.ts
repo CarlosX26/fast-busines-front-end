@@ -82,4 +82,11 @@ export class CartService {
     this.sumTotalProducts.next(this.getSumTotalProducts());
     localStorage.setItem("@fastbusines:cart", JSON.stringify(this.cart));
   }
+
+  clearCart(): void {
+    this.cart = [];
+    this.countProductsInCart.next(this.countProducts());
+    this.sumTotalProducts.next(this.getSumTotalProducts());
+    localStorage.setItem("@fastbusines:cart", JSON.stringify(this.cart));
+  }
 }

@@ -11,6 +11,7 @@ import { HeaderComponent } from "./components/header/header.component";
 import { ListProductsComponent } from "./components/list-products/list-products.component";
 import { CartComponent } from './pages/cart/cart.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
     ListProductsComponent,
     CartComponent,
     ProfileComponent,
+    ProductDetailsComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,29 @@
+.box__profile {
+  height: calc(100vh - 56px);
+  background-color: var(--color-gray-4);
+}
+
+.container {
+  height: 100%;
+}
+.container > h2 {
+  font-size: 32px;
+  color: var(--color-gray-1);
+  padding-top: 32px;
+}
+
+.profile__user {
+  background-color: var(--color-gray-1);
+  border-radius: var(--radius-1);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+}
+.profile__user > span {
+  display: flex;
+  border-radius: 50%;
+  padding: 4px;
+  background-color: var(--color-gray-5);
+  color: var(--color-gray-1);
+}

@@ -42,6 +42,7 @@
 .card__cart > img {
   border-radius: 8px;
   height: 96px;
+  object-fit: cover;
 }
 .card__cart > p {
   font-size: 16px;
@@ -95,4 +96,19 @@
   background-color: var(--color-secondary);
   color: var(--color-gray-1);
   font-weight: 700;
+}
+
+@media (width <= 532px) {
+  .card__cart {
+    flex-direction: column;
+    gap: 8px;
+    padding: 0;
+  }
+  .card__cart > span {
+    width: 100%;
+  }
+  .card__cart > img {
+    width: 100%;
+    height: 102px;
+  }
 }

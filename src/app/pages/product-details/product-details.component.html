@@ -7,16 +7,24 @@
         class="product__image"
       />
       <div class="product__title">
-        <p>Produto x</p>
-        <p>$ 320</p>
+        <p>{{ productDetails.name }}</p>
+        <p>{{ productDetails.price | currency }}</p>
       </div>
-      <p class="product__description">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-        exercitationem ducimus sit animi, architecto, minima numquam quaerat
-        repellendus nihil voluptas, officia cumque temporibus placeat adipisci
-        ullam. Repellendus nam asperiores praesentium?
+      <p
+        class="product__description"
+        *ngIf="productDetails.description; else productNotHaveDescription"
+      >
+        {{ productDetails.description }}
       </p>
-      <button class="product__button">Adicionar ao carrinho</button>
+      <ng-template #productNotHaveDescription>
+        <p class="product__description">Produto não possuí descrição...</p>
+      </ng-template>
+      <button
+        class="product__button"
+        (click)="addProductToCart(productDetails)"
+      >
+        Adicionar ao carrinho
+      </button>
     </div>
   </div>
 </section>

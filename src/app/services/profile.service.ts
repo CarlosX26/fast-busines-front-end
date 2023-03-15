@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Api } from "./api";
 
-interface IProfileResponse {
+export interface IProfileResponse {
   id: number;
   first_name: string;
   email: string;
@@ -16,6 +16,12 @@ export class ProfileService {
   constructor(private http: HttpClient) {}
 
   getProfile(): Observable<IProfileResponse> {
-    return this.http.get<IProfileResponse>(`${Api.baseUrl}/profile/`);
+    const token = localStorage
+      .getItem("@fastbusines:access")
+      ?.replaceAll('"', "");
+
+    return this.http.get<IProfileResponse>(`${Api.baseUrl}/users/profile/`, {
+      headers: { ...Api.headers, Authorization: `Bearer ${token}` },
+    });
   }
 }

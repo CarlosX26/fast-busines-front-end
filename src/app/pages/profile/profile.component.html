@@ -2,17 +2,22 @@
   <div class="container">
     <h2>Perfil</h2>
 
-    <div class="profile__user">
-      <span class="material-symbols-outlined"> account_circle </span>
-      <h3>Carlos Jr.</h3>
-    </div>
+    <ul *ngIf="profileInformations">
+      <div class="profile__user">
+        <span class="material-symbols-outlined"> account_circle </span>
+        <h3>{{ profileInformations.first_name }}</h3>
+      </div>
 
-    <div class="profile__infos"></div>
+      <div class="profile__infos">
+        <p>Nome: {{ profileInformations.first_name }}</p>
+        <p>Email: {{ profileInformations.email }}</p>
+      </div>
 
-    <form class="profile__form">
-      <select name=""></select>
-      <input type="text" />
-      <button type="submit">Atualizar informação</button>
-    </form>
+      <form class="profile__form">
+        <select name=""></select>
+        <input type="text" />
+        <button type="submit">Atualizar informação</button>
+      </form>
+    </ul>
   </div>
 </section>

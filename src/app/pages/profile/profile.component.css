@@ -12,6 +12,13 @@
   padding-top: 32px;
 }
 
+.container > ul {
+  display: flex;
+  flex-direction: column;
+  padding-top: 16px;
+  gap: 16px;
+}
+
 .profile__user {
   background-color: var(--color-gray-1);
   border-radius: var(--radius-1);
@@ -20,10 +27,60 @@
   gap: 16px;
   padding: 16px;
 }
+.profile__user > h3 {
+  color: var(--color-text);
+}
 .profile__user > span {
   display: flex;
   border-radius: 50%;
   padding: 4px;
   background-color: var(--color-gray-5);
   color: var(--color-gray-1);
+}
+
+.profile__infos {
+  background-color: var(--color-gray-1);
+  border-radius: var(--radius-1);
+  padding: 16px;
+}
+.profile__infos > p {
+  color: var(--color-text);
+}
+
+.profile__form {
+  background-color: var(--color-gray-1);
+  border-radius: var(--radius-1);
+  padding: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.profile__form > select {
+  width: 30%;
+  height: 48px;
+  padding: 0 16px;
+  font-size: 16px;
+  border-radius: var(--radius-1);
+  outline: 2px solid transparent;
+  background-color: var(--color-gray-2);
+  transition: all 0.3s ease-in-out;
+}
+.profile__form > input {
+  width: calc(70% - 16px);
+  height: 48px;
+  padding: 0 16px;
+  font-size: 16px;
+  border-radius: var(--radius-1);
+  outline: 2px solid transparent;
+  background-color: var(--color-gray-2);
+  transition: all 0.3s ease-in-out;
+}
+.profile__form > button {
+  width: 100%;
+  background-color: var(--color-secondary);
+  color: var(--color-gray-1);
+  padding: 16px;
+  border-radius: var(--radius-1);
+  font-weight: 700;
 }

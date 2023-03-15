@@ -4,6 +4,7 @@ import { HomeComponent } from "./pages/home/home.component";
 import { AuthComponent } from "./pages/auth/auth.component";
 import { CartComponent } from "./pages/cart/cart.component";
 import { ProfileComponent } from "./pages/profile/profile.component";
+import { AuthGuard } from "./auth.guard";
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
   {
     path: "profile",
     component: ProfileComponent,
+    canActivate: [AuthGuard],
   },
 ];
 

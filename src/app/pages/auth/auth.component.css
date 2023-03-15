@@ -95,6 +95,9 @@
   }
 }
 @media (width <= 596px) {
+  :host {
+    padding: 32px 0 16px 0;
+  }
   .box {
     min-height: 90vh;
     width: 90%;
@@ -116,10 +119,5 @@
     left: 0;
     top: 57%;
     border-radius: 48px 48px 8px 8px;
-  }
-}
-@media (width <= 360px) {
-  .box {
-    width: 100%;
   }
 }

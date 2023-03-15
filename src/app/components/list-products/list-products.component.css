@@ -51,6 +51,7 @@ a > div {
 }
 
 a > div > p {
+  color: var(--color-text);
   width: 50%;
   padding-left: 16px;
 }

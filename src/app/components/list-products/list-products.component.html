@@ -1,8 +1,12 @@
-<li *ngFor="let product of productList" [id]="product.id">
+<a
+  routerLink="product/{{ product.id }}"
+  *ngFor="let product of productList"
+  [id]="product.id"
+>
   <img [src]="product.img_url" alt="image of product" />
   <p>{{ product.name }}</p>
   <div>
     <p>{{ product.price | currency }}</p>
-    <button (click)="addProductToCart(product)">Comprar</button>
+    <button>Comprar</button>
   </div>
-</li>
+</a>

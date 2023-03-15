@@ -1,0 +1,51 @@
+<section class="box__profile">
+  <div class="container">
+    <h2>Perfil</h2>
+
+    <ul *ngIf="profileInformations">
+      <div class="profile__user">
+        <span class="material-symbols-outlined"> account_circle </span>
+        <h3>{{ profileInformations.first_name }}</h3>
+      </div>
+
+      <div class="profile__infos">
+        <p>Nome: {{ profileInformations.first_name }}</p>
+        <p>Email: {{ profileInformations.email }}</p>
+      </div>
+
+      <form
+        class="profile__form"
+        [formGroup]="formProfile"
+        (ngSubmit)="onSubmit()"
+      >
+        <select class="profile__form__input" (change)="changeField($event)">
+          <option value="first_name">Nome</option>
+          <option value="email">Email</option>
+          <option value="password">Password</option>
+        </select>
+        <input
+          class="profile__form__input"
+          type="text"
+          placeholder="Digite seu novo nome."
+          formControlName="first_name"
+          *ngIf="fieldSelected === 'first_name'"
+        />
+        <input
+          class="profile__form__input"
+          type="text"
+          placeholder="Digite seu novo email."
+          formControlName="email"
+          *ngIf="fieldSelected === 'email'"
+        />
+        <input
+          class="profile__form__input"
+          type="text"
+          placeholder="Digite sua nova senha."
+          formControlName="password"
+          *ngIf="fieldSelected === 'password'"
+        />
+        <button type="submit">Atualizar informação</button>
+      </form>
+    </ul>
+  </div>
+</section>

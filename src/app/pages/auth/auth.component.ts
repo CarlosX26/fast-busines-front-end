@@ -58,7 +58,10 @@ export class AuthComponent implements OnInit {
     if (this.loginForm.valid) {
       const data = this.loginForm.value;
       this.authService.login(data).subscribe((data) => {
-        localStorage.setItem("@fastBusinesAccess", JSON.stringify(data.access));
+        localStorage.setItem(
+          "@fastbusines:access",
+          JSON.stringify(data.access)
+        );
         console.log(data);
       });
     }

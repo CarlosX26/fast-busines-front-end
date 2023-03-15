@@ -31,4 +31,10 @@ export class ProductService {
       headers: { ...Api.headers },
     });
   }
+
+  getProductById(productId: string): Observable<IProduct> {
+    return this.http.get<IProduct>(`${Api.baseUrl}/products/${productId}/`, {
+      headers: { ...Api.headers },
+    });
+  }
 }

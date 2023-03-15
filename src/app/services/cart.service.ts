@@ -29,6 +29,9 @@ export class CartService {
 
     if (productInCartIndex > -1) {
       this.cart[productInCartIndex].count++;
+      if (this.cart[productInCartIndex].count > product.stock) {
+        this.cart[productInCartIndex].count = product.stock;
+      }
     } else {
       this.cart.push({ ...product, count: 1 });
     }

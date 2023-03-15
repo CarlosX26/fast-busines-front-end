@@ -18,24 +18,27 @@
         [formGroup]="formProfile"
         (ngSubmit)="onSubmit()"
       >
-        <select (change)="changeField($event)">
+        <select class="profile__form__input" (change)="changeField($event)">
           <option value="first_name">Nome</option>
           <option value="email">Email</option>
           <option value="password">Password</option>
         </select>
         <input
+          class="profile__form__input"
           type="text"
           placeholder="Digite seu novo nome."
           formControlName="first_name"
           *ngIf="fieldSelected === 'first_name'"
         />
         <input
+          class="profile__form__input"
           type="text"
           placeholder="Digite seu novo email."
           formControlName="email"
           *ngIf="fieldSelected === 'email'"
         />
         <input
+          class="profile__form__input"
           type="text"
           placeholder="Digite sua nova senha."
           formControlName="password"

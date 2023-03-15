@@ -13,9 +13,34 @@
         <p>Email: {{ profileInformations.email }}</p>
       </div>
 
-      <form class="profile__form">
-        <select name=""></select>
-        <input type="text" />
+      <form
+        class="profile__form"
+        [formGroup]="formProfile"
+        (ngSubmit)="onSubmit()"
+      >
+        <select (change)="changeField($event)">
+          <option value="first_name">Nome</option>
+          <option value="email">Email</option>
+          <option value="password">Password</option>
+        </select>
+        <input
+          type="text"
+          placeholder="Digite seu novo nome."
+          formControlName="first_name"
+          *ngIf="fieldSelected === 'first_name'"
+        />
+        <input
+          type="text"
+          placeholder="Digite seu novo email."
+          formControlName="email"
+          *ngIf="fieldSelected === 'email'"
+        />
+        <input
+          type="text"
+          placeholder="Digite sua nova senha."
+          formControlName="password"
+          *ngIf="fieldSelected === 'password'"
+        />
         <button type="submit">Atualizar informação</button>
       </form>
     </ul>

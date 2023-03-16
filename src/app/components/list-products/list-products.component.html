@@ -1,12 +1,16 @@
-<a
-  routerLink="product/{{ product.id }}"
-  *ngFor="let product of productList"
-  [id]="product.id"
->
-  <img [src]="product.img_url" alt="image of product" />
-  <p>{{ product.name }}</p>
-  <div>
-    <p>{{ product.price | currency }}</p>
-    <button>Comprar</button>
-  </div>
-</a>
+<ul>
+  <a
+    routerLink="product/{{ product.id }}"
+    *ngFor="let product of productList"
+    [id]="product.id"
+    class="card__product"
+  >
+    <img [src]="product.img_url" alt="image of product" />
+    <p>{{ product.name }}</p>
+    <div>
+      <p>{{ product.price | currency }}</p>
+      <button>Comprar</button>
+    </div>
+  </a>
+</ul>
+<span id="more"></span>

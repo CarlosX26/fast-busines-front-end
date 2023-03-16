@@ -26,8 +26,9 @@ interface IProductsResponse {
 export class ProductService {
   constructor(private http: HttpClient) {}
 
-  getProducts(): Observable<IProductsResponse> {
-    return this.http.get<IProductsResponse>(`${Api.baseUrl}/products/`, {
+  getProducts(pageNumber: number = 1): Observable<IProductsResponse> {
+    const page = `?page=${pageNumber}`;
+    return this.http.get<IProductsResponse>(`${Api.baseUrl}/products/${page}`, {
       headers: { ...Api.headers },
     });
   }

@@ -1,5 +1,5 @@
 
-# Fast Busines
+# FAST BUSINES
 
 O Fast Busines é uma aplicação de e-commerce full stack que tem como objetivo ser uma solução simples e de fácil utilização para seus usuários. Desenvolvida utilizando Angular e Django, a aplicação oferece uma experiência rápida e responsiva, permitindo aos usuários realizar compras online de forma simples e segura.
 

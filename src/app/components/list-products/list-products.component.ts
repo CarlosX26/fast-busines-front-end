@@ -26,7 +26,6 @@ export class ListProductsComponent implements OnInit, OnDestroy {
 
           this.productList = [...this.productList, ...data.results];
           this.filteredProducts = this.productList;
-          console.log("executou");
         });
       }
     }

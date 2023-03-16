@@ -62,18 +62,13 @@ export class AuthComponent implements OnInit {
           "@fastbusines:access",
           JSON.stringify(data.access)
         );
-        console.log(data);
       });
     }
   }
   onSubmitRegister(): void {
-    console.log(this.registerForm.valid);
-
     if (this.registerForm.valid) {
       const data = this.registerForm.value;
-      this.authService.register(data).subscribe((data) => {
-        console.log(data);
-      });
+      this.authService.register(data).subscribe((data) => {});
     }
   }
 

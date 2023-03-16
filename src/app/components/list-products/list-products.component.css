@@ -1,8 +1,36 @@
+nav {
+  padding-top: 32px;
+  text-align: end;
+}
+
+.box__searchProduct {
+  display: inline-flex;
+  gap: 4px;
+  width: 232px;
+  padding: 4px;
+  border-radius: var(--radius-1);
+  background-color: var(--color-gray-1);
+  transition: all 0.3s ease-in-out;
+}
+.box__searchProduct > input {
+  border-radius: var(--radius-1);
+  background-color: var(--color-gray-1);
+  padding-left: 4px;
+  width: 90%;
+}
+.box__searchProduct > button {
+  width: 10%;
+  background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 ul {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 32px;
-  padding: 32px 0 16px 0;
+  padding: 16px 0;
 }
 
 .card__product {
@@ -80,6 +108,9 @@ ul {
   }
 }
 @media (width <= 655px) {
+  .box__searchProduct {
+    width: 100%;
+  }
   ul {
     grid-template-columns: repeat(2, 1fr);
   }

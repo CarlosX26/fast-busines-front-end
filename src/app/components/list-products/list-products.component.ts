@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnDestroy, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
 import { IProduct, ProductService } from "src/app/services/product.service";
 
 @Component({
@@ -10,6 +10,9 @@ export class ListProductsComponent implements OnInit, OnDestroy {
   constructor(private productService: ProductService) {}
 
   productList: IProduct[] = [];
+  filteredProducts: IProduct[] = [];
+  productName: string = "";
+
   nextPage: number | null = 1;
   observer: IntersectionObserver = new IntersectionObserver(
     ([{ isIntersecting }]) => {
@@ -22,6 +25,8 @@ export class ListProductsComponent implements OnInit, OnDestroy {
           }
 
           this.productList = [...this.productList, ...data.results];
+          this.filteredProducts = this.productList;
+          console.log("executou");
         });
       }
     }
@@ -33,5 +38,17 @@ export class ListProductsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.observer.disconnect();
+  }
+
+  searchProduct(): void {
+    const product = this.productName.trim().toLowerCase();
+
+    this.filteredProducts = this.productList.filter((p) => {
+      if (!product) {
+        return true;
+      }
+
+      return p.name.toLowerCase().includes(product);
+    });
   }
 }

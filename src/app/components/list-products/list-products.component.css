@@ -1,11 +1,39 @@
-:host {
+nav {
+  padding-top: 32px;
+  text-align: end;
+}
+
+.box__searchProduct {
+  display: inline-flex;
+  gap: 4px;
+  width: 232px;
+  padding: 4px;
+  border-radius: var(--radius-1);
+  background-color: var(--color-gray-1);
+  transition: all 0.3s ease-in-out;
+}
+.box__searchProduct > input {
+  border-radius: var(--radius-1);
+  background-color: var(--color-gray-1);
+  padding-left: 4px;
+  width: 90%;
+}
+.box__searchProduct > button {
+  width: 10%;
+  background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 32px;
-  padding-top: 32px;
+  padding: 16px 0;
 }
 
-a {
+.card__product {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -15,10 +43,10 @@ a {
   border-radius: var(--radius-1);
   transition: 0.3s ease-in-out;
 }
-a:hover {
+.card__product:hover {
   box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.5);
 }
-a > p {
+.card__product > p {
   position: absolute;
   left: 0;
   bottom: 20%;
@@ -34,29 +62,29 @@ a > p {
   opacity: 0;
   transition: all 0.3s ease-in-out;
 }
-a:hover > p {
+.card__product:hover > p {
   opacity: 1;
 }
 
-a > img {
+.card__product > img {
   border-radius: 8px 8px 0px 8px;
   height: 80%;
   object-fit: cover;
 }
 
-a > div {
+.card__product > div {
   display: flex;
   align-items: center;
   height: 20%;
 }
 
-a > div > p {
+.card__product > div > p {
   color: var(--color-text);
   width: 50%;
   padding-left: 16px;
 }
 
-a > div > button {
+.card__product > div > button {
   background-color: var(--color-secondary);
   height: 100%;
   width: 50%;
@@ -65,27 +93,30 @@ a > div > button {
   font-weight: 600;
   transition: 0.3s ease-in-out;
 }
-a > div > button:hover {
+.card__product > div > button:hover {
   background-color: var(--color-primary);
 }
 
 @media (width <= 1145px) {
-  :host {
+  ul {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 @media (width <= 875px) {
-  :host {
+  ul {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 @media (width <= 655px) {
-  :host {
+  .box__searchProduct {
+    width: 100%;
+  }
+  ul {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 @media (width <= 432px) {
-  :host {
+  ul {
     grid-template-columns: 1fr;
   }
 }

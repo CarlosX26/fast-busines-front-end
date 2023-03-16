@@ -1,12 +1,31 @@
-<a
-  routerLink="product/{{ product.id }}"
-  *ngFor="let product of productList"
-  [id]="product.id"
->
-  <img [src]="product.img_url" alt="image of product" />
-  <p>{{ product.name }}</p>
-  <div>
-    <p>{{ product.price | currency }}</p>
-    <button>Comprar</button>
+<nav>
+  <div class="box__searchProduct">
+    <input
+      type="text"
+      placeholder="Digite o nome do produto..."
+      [(ngModel)]="productName"
+      name="productName"
+      (keyup)="searchProduct()"
+    />
+    <button (click)="searchProduct()">
+      <span class="material-symbols-outlined"> search </span>
+    </button>
   </div>
-</a>
+</nav>
+<ul>
+  <a
+    routerLink="product/{{ product.id }}"
+    *ngFor="let product of filteredProducts"
+    [id]="product.id"
+    class="card__product"
+  >
+    <img [src]="product.img_url" alt="image of product" />
+    <p>{{ product.name }}</p>
+    <div>
+      <p>{{ product.price | currency }}</p>
+      <button>Comprar</button>
+    </div>
+  </a>
+</ul>
+
+<span id="more"></span>

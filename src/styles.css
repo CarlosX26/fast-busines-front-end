@@ -1,1 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  list-style: none;
+  text-decoration: none;
+  font-family: "Raleway", sans-serif;
+}
+
+:root {
+  --color-gray-1: #f8f9fa;
+  --color-gray-2: #e9ecef;
+  --color-gray-3: #ced4da;
+  --color-gray-4: #343a40;
+  --color-gray-5: #212529;
+
+  --color-primary: #087f5b;
+  --color-secondary: #12b886;
+
+  --color-text: #212529;
+
+  --text-size-1: 16px;
+
+  --radius-1: 8px;
+}
+
+img {
+  max-width: 100%;
+}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}

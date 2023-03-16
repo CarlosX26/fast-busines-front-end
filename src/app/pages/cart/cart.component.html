@@ -1,0 +1,25 @@
+<section class="box__cart">
+  <div class="container">
+    <h2>Carrinho</h2>
+    <ul>
+      <li class="card__cart" *ngFor="let product of productsList">
+        <img [src]="product.img_url" alt="product image" />
+        <p>{{ product.name }}</p>
+        <p>{{ product.price | currency }}</p>
+        <span>
+          <button (click)="increaseProduct(product)">+</button>
+          <p>{{ product.count }}</p>
+          <button (click)="decrementProduct(product)">-</button>
+        </span>
+        <button (click)="deleteProduct(product)">
+          <span class="material-symbols-outlined"> delete </span>
+        </button>
+      </li>
+    </ul>
+    <div class="card__total">
+      <p>Total</p>
+      <p>{{ sumTotal | currency }}</p>
+      <button (click)="sendProductList()">Finalizar compra</button>
+    </div>
+  </div>
+</section>

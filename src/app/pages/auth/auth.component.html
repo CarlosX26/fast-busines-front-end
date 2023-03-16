@@ -1,0 +1,72 @@
+<section class="box">
+  <div
+    [ngClass]="{
+      box__logo: true,
+      box__logo__right: form
+    }"
+    [ngStyle]="{ transition: 'all 1s ease-in-out' }"
+  >
+    <div>
+      <h1>FAST</h1>
+      <h1>BUSINES</h1>
+    </div>
+  </div>
+  <form
+    class="box__form"
+    [formGroup]="registerForm"
+    (ngSubmit)="onSubmitRegister()"
+  >
+    <label class="box__form__label" for="firstName-register"
+      >primeiro nome</label
+    >
+    <input
+      class="box__form__input"
+      type="text"
+      placeholder="Digite seu primeiro nome..."
+      id="firstName-register"
+      formControlName="first_name"
+    />
+    <label class="box__form__label" for="email-register">email</label>
+    <input
+      class="box__form__input"
+      type="text"
+      placeholder="Digite seu email..."
+      id="email-register"
+      formControlName="email"
+    />
+    <label class="box__form__label" for="password-register">senha</label>
+    <input
+      class="box__form__input"
+      type="password"
+      placeholder="Digite sua senha..."
+      id="password-register"
+      formControlName="password"
+    />
+    <button class="box__form__button" type="submit">cadastrar</button>
+    <p class="box__form__info">
+      Já possui conta? <a (click)="toggleForm()">login</a>
+    </p>
+  </form>
+  <form class="box__form" [formGroup]="loginForm" (ngSubmit)="onSubmitLogin()">
+    <label class="box__form__label" for="email-login">email</label>
+    <input
+      class="box__form__input"
+      type="text"
+      placeholder="Digite seu email..."
+      id="email-login"
+      formControlName="email"
+    />
+    <label class="box__form__label" for="password-login">senha</label>
+    <input
+      class="box__form__input"
+      type="password"
+      placeholder="Digite sua senha..."
+      id="password-login"
+      formControlName="password"
+    />
+    <button class="box__form__button" type="submit">login</button>
+    <p class="box__form__info">
+      Não possui conta? <a (click)="toggleForm()">cadastre-se</a>
+    </p>
+  </form>
+</section>

@@ -33,7 +33,11 @@ export class ProfileComponent implements OnInit {
       "",
       [
         Validators.required,
-        Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/),
+        Validators.pattern(/[A-Z]/),
+        Validators.pattern(/[a-z]/),
+        Validators.pattern(/(\d)/),
+        Validators.pattern(/(\W)|_/),
+        Validators.pattern(/.{8,}/),
       ],
     ],
   });

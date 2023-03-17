@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { HotToastService } from "@ngneat/hot-toast";
 import {
   IProfileResponse,
   ProfileService,
@@ -13,7 +14,8 @@ import {
 export class ProfileComponent implements OnInit {
   constructor(
     private profileService: ProfileService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private toast: HotToastService
   ) {}
 
   profileInformations!: IProfileResponse;
@@ -65,11 +67,20 @@ export class ProfileComponent implements OnInit {
 
       this.profileService
         .updateProfile(data, this.profileInformations.id)
-        .subscribe((data) => {
-          this.profileInformations = data;
-        });
-    }
+        .subscribe(
+          (data) => {
+            this.profileInformations = data;
+            this.toast.success("Atualizado com sucesso.");
+            this.formProfile.reset();
+          },
+          ({ error }) => {
+            this.toast.error("Ocorreu um erro :/");
 
-    this.formProfile.reset();
+            if (error["email"]) {
+              this.toast.warning("Email já está em uso!");
+            }
+          }
+        );
+    }
   }
 }

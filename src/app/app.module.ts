@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { HttpClientModule } from "@angular/common/http";
+import { HotToastModule } from "@ngneat/hot-toast";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -12,6 +13,7 @@ import { ListProductsComponent } from "./components/list-products/list-products.
 import { CartComponent } from "./pages/cart/cart.component";
 import { ProfileComponent } from "./pages/profile/profile.component";
 import { ProductDetailsComponent } from "./pages/product-details/product-details.component";
+import { LoadingComponent } from "./components/loading/loading.component";
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { ProductDetailsComponent } from "./pages/product-details/product-details
     CartComponent,
     ProfileComponent,
     ProductDetailsComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +33,15 @@ import { ProductDetailsComponent } from "./pages/product-details/product-details
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+    HotToastModule.forRoot({
+      position: "top-right",
+      duration: 3000,
+      autoClose: true,
+      style: {
+        background: "var(--color-secondary)",
+        color: "var(--color-gray-1)",
+      },
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],

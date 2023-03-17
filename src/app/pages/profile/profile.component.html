@@ -2,7 +2,7 @@
   <div class="container">
     <h2>Perfil</h2>
 
-    <ul *ngIf="profileInformations">
+    <ul *ngIf="profileInformations; else loading">
       <div class="profile__user">
         <span class="material-symbols-outlined"> account_circle </span>
         <h3>{{ profileInformations.first_name }}</h3>
@@ -47,5 +47,9 @@
         <button type="submit">Atualizar informação</button>
       </form>
     </ul>
+
+    <ng-template #loading>
+      <app-loading></app-loading>
+    </ng-template>
   </div>
 </section>

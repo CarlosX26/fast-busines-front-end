@@ -35,6 +35,10 @@ button {
   cursor: pointer;
 }
 
+body {
+  position: relative;
+}
+
 .container {
   width: 90%;
   margin: 0 auto;

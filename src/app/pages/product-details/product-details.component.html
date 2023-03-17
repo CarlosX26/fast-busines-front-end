@@ -1,6 +1,6 @@
 <section class="box__productDetails">
   <div class="container">
-    <div *ngIf="productDetails">
+    <div *ngIf="productDetails; else loading">
       <img
         [src]="productDetails.img_url"
         alt="product image"
@@ -26,5 +26,8 @@
         Adicionar ao carrinho
       </button>
     </div>
+    <ng-template #loading>
+      <app-loading></app-loading>
+    </ng-template>
   </div>
 </section>

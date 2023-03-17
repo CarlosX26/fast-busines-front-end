@@ -12,7 +12,7 @@
     </button>
   </div>
 </nav>
-<ul>
+<ul *ngIf="productList.length; else loading">
   <a
     routerLink="product/{{ product.id }}"
     *ngFor="let product of filteredProducts"
@@ -27,5 +27,8 @@
     </div>
   </a>
 </ul>
+<ng-template #loading>
+  <app-loading></app-loading>
+</ng-template>
 
 <span id="more"></span>

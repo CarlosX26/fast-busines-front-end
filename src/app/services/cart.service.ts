@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { HotToastService } from "@ngneat/hot-toast";
 import { BehaviorSubject, Observable } from "rxjs";
 import { IProduct } from "./product.service";
 
@@ -22,7 +23,7 @@ export class CartService {
   );
   sumTotalProducts$: Observable<number> = this.sumTotalProducts.asObservable();
 
-  constructor() {}
+  constructor(private toast: HotToastService) {}
 
   addProduct(product: IProduct): void {
     const productInCartIndex = this.cart.findIndex((p) => p.id === product.id);
@@ -30,9 +31,11 @@ export class CartService {
     if (productInCartIndex > -1) {
       this.cart[productInCartIndex].count++;
       if (this.cart[productInCartIndex].count > product.stock) {
+        this.toast.warning("Produto atingiu estoque máximo!");
         this.cart[productInCartIndex].count = product.stock;
       }
     } else {
+      this.toast.success("Produto adicionado :)");
       this.cart.push({ ...product, count: 1 });
     }
 
@@ -47,10 +50,11 @@ export class CartService {
     this.cart[productInCartIndex].count += count;
 
     if (product.stock < product.count) {
+      this.toast.warning("Produto atingiu estoque máximo!");
       this.cart[productInCartIndex].count = product.stock;
     }
-
     if (this.cart[productInCartIndex].count < 1) {
+      this.toast.warning("Quantidade mínima permitida!");
       this.cart[productInCartIndex].count = 1;
     }
 

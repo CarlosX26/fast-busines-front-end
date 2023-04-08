@@ -17,13 +17,13 @@ Em resumo, o Fast Busines é uma solução de e-commerce robusta e escalável qu
 Clone o projeto
 
 ```bash
-  git clone git@github.com:CarlosX26/fast-busines.git
+  git clone git@github.com:CarlosX26/fast-busines-front-end.git
 ```
 
 Entre no diretório do projeto
 
 ```bash
-  cd fast-busines
+  cd fast-busines-front-end
 ```
 
 Instale as dependências

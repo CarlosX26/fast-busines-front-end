@@ -15,6 +15,10 @@
           <span class="material-symbols-outlined"> delete </span>
         </button>
       </li>
+
+      <li *ngIf="productsList.length === 0" class="cart__empty">
+        Seu carrinho está vazio
+      </li>
     </ul>
     <div class="card__total">
       <p>Total</p>

@@ -1,33 +1,38 @@
 <section class="box__productDetails">
   <div class="container">
     <div *ngIf="productDetails; else loading">
+      <img
+        [src]="productDetails.img_url"
+        alt="product image"
+        class="product__image"
+      />
+
       <div class="product__head">
-        <img
-          [src]="productDetails.img_url"
-          alt="product image"
-          class="product__image"
-        />
-        <p
-          class="product__description"
-          *ngIf="productDetails.description; else productNotHaveDescription"
+        <div class="product__title">
+          <p>{{ productDetails.name }}</p>
+          <p>{{ productDetails.price | currency }}</p>
+        </div>
+
+        <button
+          class="product__button"
+          (click)="addProductToCart(productDetails)"
         >
-          {{ productDetails.description }}
-        </p>
+          Adicionar ao carrinho
+        </button>
       </div>
+
+      <p
+        class="product__description"
+        *ngIf="productDetails.description; else productNotHaveDescription"
+      >
+        {{ productDetails.description }}
+      </p>
+
       <ng-template #productNotHaveDescription>
         <p class="product__description">Produto não possuí descrição...</p>
       </ng-template>
-      <div class="product__title">
-        <p>{{ productDetails.name }}</p>
-        <p>{{ productDetails.price | currency }}</p>
-      </div>
-      <button
-        class="product__button"
-        (click)="addProductToCart(productDetails)"
-      >
-        Adicionar ao carrinho
-      </button>
     </div>
+
     <ng-template #loading>
       <app-loading></app-loading>
     </ng-template>

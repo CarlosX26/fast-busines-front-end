@@ -23,9 +23,7 @@ export class AuthGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    const token = localStorage
-      .getItem("@fastbusines:access")
-      ?.replaceAll('"', "");
+    const token = JSON.parse(localStorage.getItem("@fastbusines:access")!);
 
     if (!token) {
       this.router.navigate(["/auth"]);
@@ -35,10 +33,10 @@ export class AuthGuard implements CanActivate {
     return this.profileService
       .getProfile()
       .toPromise()
-      .then((data) => {
+      .then(() => {
         return true;
       })
-      .catch((err) => {
+      .catch(() => {
         this.router.navigate(["/auth"]);
         return false;
       });

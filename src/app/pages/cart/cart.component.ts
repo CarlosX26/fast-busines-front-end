@@ -36,7 +36,7 @@ export class CartComponent implements OnInit {
       localStorage.getItem("@fastbusines:cart")!
     );
 
-    if (!cart) {
+    if (cart.length === 0) {
       return;
     }
 

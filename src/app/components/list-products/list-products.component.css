@@ -3,6 +3,12 @@ nav {
   text-align: end;
 }
 
+#more {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+}
+
 .box__searchProduct {
   display: inline-flex;
   gap: 4px;

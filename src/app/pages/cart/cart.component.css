@@ -30,6 +30,10 @@
   background-color: var(--color-secondary);
 }
 
+.cart__empty {
+  color: var(--color-gray-1);
+}
+
 .card__cart {
   position: relative;
   background-color: var(--color-gray-1);

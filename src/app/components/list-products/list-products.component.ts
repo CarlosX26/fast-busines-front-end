@@ -17,19 +17,23 @@ export class ListProductsComponent implements OnInit, OnDestroy {
   observer: IntersectionObserver = new IntersectionObserver(
     ([{ isIntersecting }]) => {
       if (isIntersecting && this.nextPage) {
-        this.productService.getProducts(this.nextPage).subscribe((data) => {
-          if (data.next) {
-            this.nextPage! += 1;
-          } else {
-            this.nextPage = null;
-          }
-
-          this.productList = [...this.productList, ...data.results];
-          this.filteredProducts = this.productList;
-        });
+        this.loadNextPage();
       }
     }
   );
+
+  loadNextPage(): void {
+    this.productService.getProducts(this.nextPage!).subscribe((data) => {
+      if (data.next) {
+        this.nextPage! += 1;
+      } else {
+        this.nextPage = null;
+      }
+
+      this.productList = [...this.productList, ...data.results];
+      this.filteredProducts = this.productList;
+    });
+  }
 
   ngOnInit(): void {
     this.observer.observe(document.getElementById("more")!);

@@ -28,7 +28,10 @@ export class ProfileService {
     });
   }
 
-  updateProfile(data: IProfileUpdate, userId: number) {
+  updateProfile(
+    data: IProfileUpdate,
+    userId: number
+  ): Observable<IProfileResponse> {
     const token = JSON.parse(localStorage.getItem("@fastbusines:access")!);
     return this.http.patch<IProfileResponse>(
       `${Api.baseUrl}/users/${userId}/`,

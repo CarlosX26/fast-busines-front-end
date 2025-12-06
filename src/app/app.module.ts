@@ -37,10 +37,6 @@ import { LoadingComponent } from "./components/loading/loading.component";
       position: "top-right",
       duration: 3000,
       autoClose: true,
-      style: {
-        background: "var(--color-secondary)",
-        color: "var(--color-gray-1)",
-      },
     }),
   ],
   providers: [],

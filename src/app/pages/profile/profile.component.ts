@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
 import { HotToastService } from "@ngneat/hot-toast";
 import {
   IProfileResponse,
@@ -15,7 +16,8 @@ export class ProfileComponent implements OnInit {
   constructor(
     private profileService: ProfileService,
     private formBuilder: FormBuilder,
-    private toast: HotToastService
+    private toast: HotToastService,
+    private router: Router
   ) {}
 
   profileInformations!: IProfileResponse;
@@ -82,5 +84,11 @@ export class ProfileComponent implements OnInit {
           }
         );
     }
+  }
+
+  logout(): void {
+    localStorage.clear();
+    this.toast.success("Logout realizado com sucesso!");
+    this.router.navigate(["/"]);
   }
 }

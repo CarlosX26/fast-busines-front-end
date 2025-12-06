@@ -1,94 +1,179 @@
 .box__profile {
-  height: calc(100vh - 56px);
-  background-color: var(--color-gray-4);
+  min-height: calc(100vh - 56px);
+  background: linear-gradient(135deg, var(--color-gray-4) 0%, var(--color-gray-3) 100%);
+  padding: 40px 16px;
 }
 
 .container {
-  height: 100%;
+  max-width: 800px;
+  margin: 0 auto;
 }
+
 .container > h2 {
-  font-size: 32px;
-  color: var(--color-gray-1);
-  padding-top: 32px;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 32px;
+  text-align: center;
 }
 
 .container > ul {
   display: flex;
   flex-direction: column;
-  padding-top: 16px;
-  gap: 16px;
+  gap: 24px;
 }
 
 .profile__user {
   background-color: var(--color-gray-1);
-  border-radius: var(--radius-1);
+  border-radius: 16px;
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 16px;
+  gap: 20px;
+  padding: 32px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
-.profile__user > h3 {
-  color: var(--color-text);
-}
+
 .profile__user > span {
   display: flex;
   border-radius: 50%;
-  padding: 4px;
-  background-color: var(--color-gray-5);
+  padding: 16px;
+  background: linear-gradient(135deg, var(--color-secondary), var(--color-gray-5));
   color: var(--color-gray-1);
+  font-size: 48px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.profile__user > h3 {
+  color: var(--color-text);
+  font-size: 28px;
+  font-weight: 700;
 }
 
 .profile__infos {
   background-color: var(--color-gray-1);
-  border-radius: var(--radius-1);
-  padding: 16px;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
+
 .profile__infos > p {
   color: var(--color-text);
+  font-size: 18px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-gray-2);
+}
+
+.profile__infos > p:last-child {
+  border-bottom: none;
 }
 
 .profile__form {
   background-color: var(--color-gray-1);
-  border-radius: var(--radius-1);
-  padding: 16px;
+  border-radius: 16px;
+  padding: 32px;
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
+
 .profile__form__input {
-  height: 48px;
-  padding: 0 16px;
+  height: 52px;
+  padding: 0 20px;
   font-size: 16px;
-  border-radius: var(--radius-1);
-  outline: 2px solid transparent;
+  border-radius: 12px;
+  border: 2px solid transparent;
   background-color: var(--color-gray-2);
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease;
+  color: var(--color-text);
 }
+
 .profile__form__input:focus {
-  outline-color: var(--color-gray-5);
+  border-color: var(--color-secondary);
+  background-color: var(--color-gray-1);
+  outline: none;
 }
+
 .profile__form > select {
   width: 30%;
+  cursor: pointer;
 }
+
 .profile__form > input {
   width: calc(70% - 16px);
 }
+
 .profile__form > button {
   width: 100%;
   background-color: var(--color-secondary);
   color: var(--color-gray-1);
   padding: 16px;
-  border-radius: var(--radius-1);
+  border-radius: 12px;
   font-weight: 700;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
-@media (width <= 408px) {
+.profile__form > button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+}
+
+.profile__logout {
+  width: 100%;
+  background-color: #dc3545;
+  color: var(--color-gray-1);
+  padding: 16px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  margin-top: 8px;
+}
+
+.profile__logout:hover {
+  background-color: #c82333;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+}
+
+@media (width <= 768px) {
+  .container > h2 {
+    font-size: 28px;
+  }
+
+  .profile__user {
+    padding: 24px;
+  }
+
+  .profile__user > span {
+    font-size: 40px;
+    padding: 12px;
+  }
+
+  .profile__user > h3 {
+    font-size: 24px;
+  }
+
+  .profile__infos,
+  .profile__form {
+    padding: 24px;
+  }
+
   .profile__form {
     flex-direction: column;
   }
-  .profile__form > select {
-    width: 100%;
-  }
+
+  .profile__form > select,
   .profile__form > input {
     width: 100%;
   }

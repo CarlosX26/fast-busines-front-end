@@ -44,8 +44,7 @@ export class CartComponent implements OnInit {
       .map((el) => `${el.name} - ${el.count}`)
       .join("%0A");
 
-    const urlBase =
-      "https://api.whatsapp.com/send?phone=+55++98981464032&text=";
+    const urlBase = "https://api.whatsapp.com/send?phone=+55++00000000&text=";
 
     const message =
       "*FAST BUSINES PEDIDO*%0D%0A" +
